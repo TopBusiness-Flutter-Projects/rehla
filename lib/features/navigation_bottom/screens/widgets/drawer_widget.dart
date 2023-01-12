@@ -10,7 +10,7 @@ import '../../../../core/widgets/circle_image_widget.dart';
 import '../../../../core/widgets/list_tile.dart';
 
 class DrawerWidget extends StatelessWidget {
-  DrawerWidget({Key? key, required this.closeDrawer}) : super(key: key);
+  const DrawerWidget({Key? key, required this.closeDrawer}) : super(key: key);
   final VoidCallback closeDrawer;
 
   @override
@@ -37,7 +37,9 @@ class DrawerWidget extends StatelessWidget {
                   image:  DecorationImage(
 
                       image: AssetImage(ImageAssets.darwarBack),
+
                       fit: BoxFit.fill),
+
 
                 ),
                 child: Container(

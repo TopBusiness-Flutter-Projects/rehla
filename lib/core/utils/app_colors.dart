@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'hex_color.dart';
 
 class AppColors {
-  static Color primary = HexColor('#009fd8');
+  static Color primary = HexColor('#02AEFF');
 
   static Color scaffoldBackground = HexColor('#F5F5F5');
   static Color buttonBackground = HexColor('#D9D9D9');
@@ -32,8 +32,8 @@ class AppColors {
   static  Color grey6 = HexColor("#747474");
   static  Color grey7 = HexColor("#FAF7F2");
 
-  static   Color color1 = HexColor('#238854');
-  static   Color color2 = HexColor('#937C63');
-  static   Color color3 = HexColor('#F87171');
+  static   Color color1 = HexColor('#3FA0D1');
+  static   Color color2 = HexColor('#224962');
+  static   Color color3 = HexColor('#cbe7f2');
   static   Color color4 = HexColor('#FF0000');
 }
