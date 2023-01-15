@@ -20,10 +20,9 @@ class CurrentOrdersWidget extends StatelessWidget {
 
       Column(
         children: [
-          Row(children: [Expanded(child: Card()),
-            Expanded(child: Card())],),
+
           Expanded(
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              gdrn  child: SizedBox(
+            child: SizedBox(
               height: double.maxFinite,
               child: ListView(shrinkWrap: true, children: [
               SvgPicture.asset(
