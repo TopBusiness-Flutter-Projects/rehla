@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../ notification_page/screens/notification.dart';
 import '../../home_page/screens/home_page.dart';
+import '../../my_orders_page/screens/myorders_page.dart';
 import '../../mytour_page/screens/mytour_page.dart';
 import '../cubit/navigator_bottom_cubit.dart';
 import '../widget/navigator_bottom_widget.dart';
@@ -77,7 +78,11 @@ class _NavigationBottomState extends State<NavigationBottom> {
            else  if (context.read<NavigatorBottomCubit>().page == 1) {
 
              return MyTourScreen();
+           }   else  if (context.read<NavigatorBottomCubit>().page == 3) {
+
+             return MyOrdersScreen();
            }
+
            else  if (context.read<NavigatorBottomCubit>().page == 4) {
 
              return NotificationScreen();
