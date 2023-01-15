@@ -23,7 +23,7 @@ class CurrentOrdersWidget extends StatelessWidget {
           Row(children: [Expanded(child: Card()),
             Expanded(child: Card())],),
           Expanded(
-            child: SizedBox(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              gdrn  child: SizedBox(
               height: double.maxFinite,
               child: ListView(shrinkWrap: true, children: [
               SvgPicture.asset(
