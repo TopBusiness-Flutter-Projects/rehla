@@ -4,7 +4,8 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../core/utils/assets_manager.dart';
-import '../../../core/widgets/list_tile.dart';
+import '../../add car/presentation/screens/add_car.dart';
+import '../../offer_ride/presentation/screens/offer_ride.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({Key? key}) : super(key: key);
@@ -56,34 +57,44 @@ class HomePageScreen extends StatelessWidget {
                           topRight: Radius.circular(50))),
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: 120,
-                        child: Card(
-                          margin: const EdgeInsets.only(
-                              top: 20, left: 10, right: 10),
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(15))),
-                          child: Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  ImageAssets.map,
-                                  width: 40,
-                                  height: 40,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  "Create a participatory journey".tr(),
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: AppColors.black,
-                                      fontWeight: FontWeight.bold),
-                                )
-                              ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OfferRideScreen(),
+                            ),
+                          );
+                        },
+                        child: SizedBox(
+                          height: 120,
+                          child: Card(
+                            margin: const EdgeInsets.only(
+                                top: 20, left: 10, right: 10),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15))),
+                            child: Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    ImageAssets.map,
+                                    width: 40,
+                                    height: 40,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    "Create a participatory journey".tr(),
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: AppColors.black,
+                                        fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -159,16 +170,14 @@ class HomePageScreen extends StatelessWidget {
                               top: 20, left: 10, right: 10),
                           shape: const RoundedRectangleBorder(
                               borderRadius:
-                              BorderRadius.all(Radius.circular(15))),
+                                  BorderRadius.all(Radius.circular(15))),
                           child: Padding(
                             padding: EdgeInsets.all(10),
                             child: Row(
                               children: [
-
                                 SizedBox(
                                   width: 10,
                                 ),
-
                                 Text(
                                   "Unavailable".tr(),
                                   style: TextStyle(
@@ -177,11 +186,12 @@ class HomePageScreen extends StatelessWidget {
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Expanded(
-                                child: Container(),
+                                  child: Container(),
                                 ),
-                                Switch(value: false, onChanged: (value) {
-
-                                },),
+                                Switch(
+                                  value: false,
+                                  onChanged: (value) {},
+                                ),
                                 Expanded(
                                   child: Container(),
                                 ),

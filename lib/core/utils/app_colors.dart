@@ -12,6 +12,7 @@ class AppColors {
   static Color genderBackgroundColor = HexColor('#448AFF');
 
   static Color hint = Colors.grey;
+  static Color orange = Colors.orange;
   static Color blackLite = Colors.black12;
   static Color error = Colors.red;
   static Color success = Colors.green;
@@ -19,6 +20,7 @@ class AppColors {
   static Color black = Colors.black;
   static Color gray = Colors.grey;
   static Color grayLite = Colors.grey[700]!;
+  static Color gray200 = Colors.grey.shade200;
   static Color grayLite2 = Colors.grey[800]!;
   static Color opacityWhite = Colors.white.withOpacity(0.5);
   static Color transparent = Colors.transparent;

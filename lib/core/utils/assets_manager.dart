@@ -25,6 +25,16 @@ class ImageAssets {
   static const String touricon = '$iconsPath/tour.svg';
   static const String logouticon = '$iconsPath/logout.svg';
   static const String deleteAccountIcon = '$iconsPath/delete_account.svg';
+  static const String filterIcon = '$iconsPath/filter.svg';
+  static const String cancelIcon = '$iconsPath/cancel.svg';
+  static const String rattingIcon = '$iconsPath/retting.svg';
+  static const String preferenceIcon = '$iconsPath/preference.svg';
+  static const String identityIcon = '$iconsPath/identity.svg';
+  static const String verificationIcon = '$iconsPath/verification.svg';
+  static const String addIcon = '$iconsPath/add.svg';
+  static const String drivingLicenceIcon = '$iconsPath/driving_licence.svg';
+  static const String carInsuranceIcon = '$iconsPath/car_insurance.svg';
+  static const String carPaperIcon = '$iconsPath/car_paper.svg';
 
 
 }

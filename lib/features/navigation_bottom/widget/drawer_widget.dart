@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_strings.dart';
-import '../../../../core/utils/assets_manager.dart';
-import '../../../../core/widgets/circle_image_widget.dart';
-import '../../../../core/widgets/list_tile.dart';
+import '../../../core/utils/app_colors.dart';
+import '../../../core/utils/app_strings.dart';
+import '../../../core/utils/assets_manager.dart';
+import '../../../core/widgets/circle_image_widget.dart';
+import '../../../core/widgets/list_tile.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key, required this.closeDrawer}) : super(key: key);

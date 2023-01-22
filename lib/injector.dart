@@ -6,7 +6,9 @@ import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/remote/service.dart';
+import 'features/add car/presentation/cubit/add_car_cubit.dart';
 import 'features/navigation_bottom/cubit/navigator_bottom_cubit.dart';
+import 'features/offer_ride/presentation/cubit/offer_ride_cubit.dart';
 
 // import 'package:http/http.dart' as http;
 
@@ -17,6 +19,8 @@ Future<void> setup() async {
 
   ///////////////////////// Blocs ////////////////////////
   serviceLocator.registerFactory(() => NavigatorBottomCubit());
+  serviceLocator.registerFactory(() => AddCarCubit());
+  serviceLocator.registerFactory(() => OfferRideCubit());
 
 
   ///////////////////// Use Cases ////////////////////////
