@@ -13,6 +13,8 @@ class AppColors {
 
   static Color hint = Colors.grey;
   static Color orange = Colors.orange;
+  static Color yellow = Colors.yellow;
+  static Color blue = Colors.blue;
   static Color blackLite = Colors.black12;
   static Color error = Colors.red;
   static Color success = Colors.green;

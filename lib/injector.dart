@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/remote/service.dart';
 import 'features/add car/presentation/cubit/add_car_cubit.dart';
+import 'features/mytour_page/cubit/my_tour_cubit.dart';
 import 'features/navigation_bottom/cubit/navigator_bottom_cubit.dart';
 import 'features/offer_ride/presentation/cubit/offer_ride_cubit.dart';
 
@@ -21,6 +22,7 @@ Future<void> setup() async {
   serviceLocator.registerFactory(() => NavigatorBottomCubit());
   serviceLocator.registerFactory(() => AddCarCubit());
   serviceLocator.registerFactory(() => OfferRideCubit());
+  serviceLocator.registerFactory(() => MyTourCubit());
 
 
   ///////////////////// Use Cases ////////////////////////

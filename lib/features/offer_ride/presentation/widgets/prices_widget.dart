@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rehla/features/add%20car/presentation/screens/add_car.dart';
 import 'package:rehla/features/offer_ride/presentation/cubit/offer_ride_cubit.dart';
 import 'package:rehla/features/offer_ride/presentation/cubit/offer_ride_cubit.dart';
 
@@ -91,7 +92,8 @@ class PricesWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       IconButton(
-                        onPressed: () => offerRideCubit.decreaseData('price',context),
+                        onPressed: () =>
+                            offerRideCubit.decreaseData('price', context),
                         icon: Icon(
                           Icons.remove_circle_outlined,
                           color: AppColors.primary,
@@ -109,7 +111,8 @@ class PricesWidget extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        onPressed: () => offerRideCubit.increaseData('price',context),
+                        onPressed: () =>
+                            offerRideCubit.increaseData('price', context),
                         icon: Icon(
                           Icons.add_circle_outlined,
                           color: AppColors.primary,
@@ -134,7 +137,8 @@ class PricesWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       IconButton(
-                        onPressed: () => offerRideCubit.decreaseData('seat',context),
+                        onPressed: () =>
+                            offerRideCubit.decreaseData('seat', context),
                         icon: Icon(
                           Icons.remove_circle_outlined,
                           color: AppColors.primary,
@@ -152,7 +156,8 @@ class PricesWidget extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        onPressed: () => offerRideCubit.increaseData('seat',context),
+                        onPressed: () =>
+                            offerRideCubit.increaseData('seat', context),
                         icon: Icon(
                           Icons.add_circle_outlined,
                           color: AppColors.primary,
@@ -177,27 +182,37 @@ class PricesWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AddCarScreen(),
+                          ),
+                        ),
                         icon: Icon(
-                          Icons.refresh,
+                          Icons.add,
                           color: AppColors.primary,
                         ),
                       ),
                       const SizedBox(width: 10),
                       Expanded(
-                        child: Container(
-                          height: 35,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              width: 1,
-                              color: AppColors.gray,
+                        child: InkWell(
+                          onTap: (){
+                            context.read<OfferRideCubit>().getAllSavedCars();
+                          },
+                          child: Container(
+                            height: 35,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                width: 1,
+                                color: AppColors.gray,
+                              ),
                             ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              offerRideCubit.selectedCar,
-                              style: TextStyle(color: AppColors.gray),
+                            child: Center(
+                              child: Text(
+                                offerRideCubit.selectedCar,
+                                style: TextStyle(color: AppColors.gray),
+                              ),
                             ),
                           ),
                         ),

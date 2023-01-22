@@ -219,7 +219,7 @@ class AddCarCubit extends Cubit<AddCarState> {
       carPaper: imagePath3,
     );
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('addCar', addCarModel.toJson().toString()).then((value) {
+    await prefs.setStringList('addCar',[jsonEncode(addCarModel)]).then((value) {
       Navigator.pop(context);
       Future.delayed(const Duration(milliseconds: 300),(){
         toastMessage('Saved Successfully', context,color: AppColors.success);

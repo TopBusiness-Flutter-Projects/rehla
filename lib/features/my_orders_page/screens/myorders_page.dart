@@ -2,9 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rehla/core/utils/app_colors.dart';
-import 'package:rehla/features/mytour_page/screens/widgets/tour_widget.dart';
-
 import '../../../core/utils/assets_manager.dart';
+import '../../mytour_page/widgets/tour_widget.dart';
 
 class MyOrdersScreen extends StatelessWidget {
   const MyOrdersScreen({Key? key}) : super(key: key);

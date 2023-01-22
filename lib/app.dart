@@ -8,6 +8,7 @@ import 'package:rehla/injector.dart' as injector;
 import 'core/utils/app_routes.dart';
 import 'core/utils/app_strings.dart';
 import 'features/add car/presentation/cubit/add_car_cubit.dart';
+import 'features/mytour_page/cubit/my_tour_cubit.dart';
 import 'features/navigation_bottom/cubit/navigator_bottom_cubit.dart';
 import 'features/offer_ride/presentation/cubit/offer_ride_cubit.dart';
 
@@ -34,8 +35,11 @@ class _RehlaState extends State<Rehla> {
         BlocProvider(
           create: (_) => injector.serviceLocator<AddCarCubit>(),
         ),
-BlocProvider(
+        BlocProvider(
           create: (_) => injector.serviceLocator<OfferRideCubit>(),
+        ),
+        BlocProvider(
+          create: (_) => injector.serviceLocator<MyTourCubit>(),
         ),
       ],
       child: MaterialApp(

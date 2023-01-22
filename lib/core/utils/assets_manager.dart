@@ -8,6 +8,8 @@ class ImageAssets {
   static const String avatar = '$imagePath/avatar.png';
   static const String map = '$imagePath/map.png';
   static const String pin = '$imagePath/pin.png';
+  static const String map1 = '$imagePath/map1.jpg';
+  static const String map2 = '$imagePath/map2.jpg';
 
   static const String minusicon = '$iconsPath/minus.svg';
   static const String sadicon = '$iconsPath/sad.svg';
@@ -35,6 +37,10 @@ class ImageAssets {
   static const String drivingLicenceIcon = '$iconsPath/driving_licence.svg';
   static const String carInsuranceIcon = '$iconsPath/car_insurance.svg';
   static const String carPaperIcon = '$iconsPath/car_paper.svg';
+  static const String dateIcon = '$iconsPath/date.svg';
+  static const String timeIcon = '$iconsPath/time.svg';
+  static const String seatIcon = '$iconsPath/seat.svg';
+  static const String distanceIcon = '$iconsPath/distance.svg';
 
 
 }
