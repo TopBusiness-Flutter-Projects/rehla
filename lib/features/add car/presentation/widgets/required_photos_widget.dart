@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rehla/features/add%20car/presentation/cubit/add_car_cubit.dart';
@@ -27,7 +28,7 @@ class _RequiredPhotosWidgetState extends State<RequiredPhotosWidget> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           child: Text(
-            'Upload Required Photos',
+            'Upload Required Photos'.tr(),
             style: TextStyle(color: AppColors.grey1),
           ),
         ),
@@ -69,7 +70,7 @@ class _RequiredPhotosWidgetState extends State<RequiredPhotosWidget> {
                         ),
                         const SizedBox(height: 12),
                         Text(
-                          'Driving Licence',
+                          'Driving Licence'.tr(),
                           style: TextStyle(
                             fontSize: 20,
                             color: containerChoose == 1
@@ -117,7 +118,7 @@ class _RequiredPhotosWidgetState extends State<RequiredPhotosWidget> {
                         ),
                         const SizedBox(height: 12),
                         Text(
-                          'Car Insurance',
+                          'Car Insurance'.tr(),
                           style: TextStyle(
                             fontSize: 20,
                             color: containerChoose == 2
@@ -165,7 +166,7 @@ class _RequiredPhotosWidgetState extends State<RequiredPhotosWidget> {
                         ),
                         const SizedBox(height: 12),
                         Text(
-                          'Car Paper',
+                          'Car Paper'.tr(),
                           style: TextStyle(
                             fontSize: 20,
                             color: containerChoose == 3
@@ -190,9 +191,9 @@ class _RequiredPhotosWidgetState extends State<RequiredPhotosWidget> {
               showDialog(
                 context: context,
                 builder: (ctx) => AlertDialog(
-                  title: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    child: Text('Choose'),
+                  title:  Padding(
+                    padding:const EdgeInsets.symmetric(vertical: 5),
+                    child: Text('Choose'.tr()),
                   ),
                   contentPadding: EdgeInsets.zero,
                   content: SizedBox(
@@ -214,7 +215,7 @@ class _RequiredPhotosWidgetState extends State<RequiredPhotosWidget> {
                               children: [
                                 Icon(Icons.camera_alt,
                                     size: 45, color: AppColors.gray),
-                                const Text('Camera')
+                                 Text('camera'.tr())
                               ],
                             ),
                           ),
@@ -234,7 +235,7 @@ class _RequiredPhotosWidgetState extends State<RequiredPhotosWidget> {
                               children: [
                                 Icon(Icons.photo,
                                     size: 45, color: AppColors.gray),
-                                const Text('Gallery')
+                                 Text('Gallery'.tr())
                               ],
                             ),
                           ),
@@ -248,7 +249,7 @@ class _RequiredPhotosWidgetState extends State<RequiredPhotosWidget> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: const Text('Cancel'))
+                        child:  Text('Cancel'.tr()))
                   ],
                 ),
               );

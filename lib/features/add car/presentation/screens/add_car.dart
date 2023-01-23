@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rehla/core/utils/app_colors.dart';
@@ -17,7 +18,7 @@ class AddCarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Add Car'),
+          title:  Text('Add Car'.tr()),
           elevation: 0,
           backgroundColor: AppColors.primary),
       body: BlocBuilder<AddCarCubit, AddCarState>(
@@ -31,35 +32,35 @@ class AddCarScreen extends StatelessWidget {
                 const SelectCarPhotoWidget(),
                 SelectedCarWidget(
                   kind: 'brand',
-                  title: 'Select Car Brand',
-                  containerTitle: cubit.carBrandContent ?? 'Car Brand',
+                  title: 'Select Car Brand'.tr(),
+                  containerTitle: cubit.carBrandContent ?? 'Car Brand'.tr(),
                   listLength: cubit.carBrand.length,
                   listItems: cubit.carBrand,
                 ),
                 SelectedCarWidget(
                   kind: 'model',
-                  title: 'Select Car Model',
-                  containerTitle: cubit.carModelContent ?? 'Car Model',
+                  title: 'Select Car Model'.tr(),
+                  containerTitle: cubit.carModelContent ?? 'Car Model'.tr(),
                   listLength: cubit.carModels.length,
                   listItems: cubit.carModels,
                 ),
                 SelectedCarWidget(
                   kind: 'type',
-                  title: 'Select Car Type',
-                  containerTitle: cubit.carTypeContent ?? 'Car Type',
+                  title: 'Select Car Type'.tr(),
+                  containerTitle: cubit.carTypeContent ?? 'Car Type'.tr(),
                   listLength: cubit.carTypes.length,
                   listItems: cubit.carTypes,
                 ),
                 SelectedCarWidget(
                   kind: 'color',
-                  title: 'Select Car Color',
-                  containerTitle: cubit.carColorContent ?? 'Car Color',
+                  title: 'Select Car Color'.tr(),
+                  containerTitle: cubit.carColorContent ?? 'Car Color'.tr(),
                   listLength: cubit.carColors.length,
                   listItems: cubit.carColors,
                 ),
                 SelectedCarWidget(
                   kind: 'production',
-                  title: 'Select Production Year',
+                  title: 'Select Production Year'.tr(),
                   containerTitle: cubit.productionYearContent ?? '2019',
                   listLength: cubit.productionYear.length,
                   listItems: cubit.productionYear,
@@ -67,7 +68,7 @@ class AddCarScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 SelectedCarWidget(
                   kind: 'seats',
-                  title: 'Select Car Seats',
+                  title: 'Select Car Seats'.tr(),
                   containerTitle: cubit.carSeatContent ?? '1',
                   listLength: cubit.carSeats.length,
                   listItems: cubit.carSeats,
@@ -77,81 +78,66 @@ class AddCarScreen extends StatelessWidget {
                 const RequiredPhotosWidget(),
                 const SizedBox(height: 25),
                 CustomButton(
-                  text: 'Save',
+                  text: 'Save'.tr(),
                   color: AppColors.primary,
                   onClick: () {
                     if (cubit.formKey.currentState!.validate()) {
                      if (cubit.imagePath == '') {
                       toastMessage(
-                        'Please Select Car Photo !!!',
+                        'Please Select Car Photo !!!'.tr(),
                         context,
                         color: AppColors.error,
                       );
                     }else if (cubit.carBrandContent == null) {
                         toastMessage(
-                          'Please Select Car Brand !!!',
+                          'Please Select Car Brand !!!'.tr(),
                           context,
                           color: AppColors.error,
                         );
                       } else if (cubit.carModelContent == null) {
                         toastMessage(
-                          'Please Select Car Model !!!',
+                          'Please Select Car Model !!!'.tr(),
                           context,
                           color: AppColors.error,
                         );
                       }else if (cubit.carTypeContent == null) {
                         toastMessage(
-                          'Please Select Car Type !!!',
+                          'Please Select Car Type !!!'.tr(),
                           context,
                           color: AppColors.error,
                         );
                       }else if (cubit.carColorContent == null) {
                         toastMessage(
-                          'Please Select Car Color !!!',
+                          'Please Select Car Color !!!'.tr(),
                           context,
                           color: AppColors.error,
                         );
                       }else if(cubit.carPlateTextContent.contains('#')) {
                        toastMessage(
-                         'Please Select Car Plate Letters !!!',
+                         'Please Select Car Plate Letters !!!'.tr(),
                          context,
                          color: AppColors.error,
                        );
                      }
-                     //
-                     // else if (cubit.productionYearContent == null) {
-                     //    toastMessage(
-                     //      'Please Select Production Year !!!',
-                     //      context,
-                     //      color: AppColors.error,
-                     //    );
-                     //  }else if (cubit.carSeatContent == null) {
-                     //    toastMessage(
-                     //      'Please Select Car Seats !!!',
-                     //      context,
-                     //      color: AppColors.error,
-                     //    );
-                     //  }
                      else if (cubit.imagePath1 == '') {
                        toastMessage(
-                         'Please Select Driving Licence Photo !!!',
+                         'Please Select Driving Licence Photo !!!'.tr(),
                          context,
                          color: AppColors.error,
                        );
                      }else if (cubit.imagePath2 == '') {
                        toastMessage(
-                         'Please Select Car Insurance Photo !!!',
+                         'Please Select Car Insurance Photo !!!'.tr(),
                          context,
                          color: AppColors.error,
                        );
                      }else if (cubit.imagePath3 == '') {
                        toastMessage(
-                         'Please Select Car Paper Photo !!!',
+                         'Please Select Car Paper Photo !!!'.tr(),
                          context,
                          color: AppColors.error,
                        );
                      }else{
-                       print(' All is Done Let\'s Start !!!!');
                        cubit.saveAddCarModelToShared(context);
                      }
                     }

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rehla/core/utils/app_colors.dart';
@@ -15,8 +16,8 @@ part 'offer_ride_state.dart';
 class OfferRideCubit extends Cubit<OfferRideState> {
   OfferRideCubit() : super(OfferRideInitial()) {
     getAllSavedCars();
-    controller.text =
-        'Please write something about you and trip instructions such as: \n* Please hold your personal identity with you. \n* Only one travel bag is allowed.\n* What is your favorite sport club!\n* Tell us about your hobbies and interests so that others will know you on the same trip.';
+
+    controller.text = 'information'.tr();
     startTime =
         '${DateTime.now().hour < 10 ? '0${DateTime.now().hour}' : DateTime.now().hour}:${DateTime.now().minute < 10 ? '0${DateTime.now().minute}' : DateTime.now().minute}:${DateTime.now().second < 10 ? '0${DateTime.now().second}' : DateTime.now().second}';
     print('startTime');
@@ -32,11 +33,14 @@ class OfferRideCubit extends Cubit<OfferRideState> {
   int numberOfSeats = 1;
   String selectedCar = '';
   String startTime = '';
-  String endTime = 'Reaching Time';
+  String? endTime;
+
   String date = '';
   String information = '';
-  String startLocation = 'Set Start Location';
-  String endLocation = 'Set End Location';
+  String? startLocation;
+  String? endLocation;
+
+  bool isStartLocationSelected = false;
   bool isPassenger = false;
   AddCarModel? addCarModel;
   TextEditingController controller = TextEditingController();
@@ -44,6 +48,7 @@ class OfferRideCubit extends Cubit<OfferRideState> {
   selectCarLocation(int kind, BuildContext context) {
     if (kind == 1) {
       startLocation = 'الدرب الأحمر، Al Abageyah, El Khalifa';
+      isStartLocationSelected = true;
       emit(OfferRideSelectLocation());
       Future.delayed(const Duration(milliseconds: 350), () {
         Navigator.pop(context);
@@ -87,7 +92,7 @@ class OfferRideCubit extends Cubit<OfferRideState> {
         emit(OfferRideIncrease());
       } else {
         toastMessage(
-          'This is the maximum number allowed',
+          'this_is_the_maximum_number_allowed'.tr(),
           context,
           color: AppColors.black,
         );
@@ -99,7 +104,7 @@ class OfferRideCubit extends Cubit<OfferRideState> {
     if (type == 'price') {
       if (seatPrice <= 1) {
         toastMessage(
-          'Must be greater than Zero',
+          'must_be_greater_than_zero'.tr(),
           context,
           color: AppColors.black,
         );
@@ -114,7 +119,7 @@ class OfferRideCubit extends Cubit<OfferRideState> {
         emit(OfferRideDecrease());
       } else {
         toastMessage(
-          'Must be greater than Zero',
+          'must_be_greater_than_zero'.tr(),
           context,
           color: AppColors.black,
         );
@@ -123,6 +128,7 @@ class OfferRideCubit extends Cubit<OfferRideState> {
   }
 
   saveOfferRideData(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     OfferRideModel offerRideModel = OfferRideModel(
       startLocation: startLocation,
       endLocation: endLocation,
@@ -137,18 +143,35 @@ class OfferRideCubit extends Cubit<OfferRideState> {
       isPassenger: isPassenger,
       information: controller.text,
     );
-    OfferRideListModel offerRideListModel =
-        OfferRideListModel([offerRideModel]);
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    await prefs
-        .setString('offerRide', jsonEncode(offerRideListModel))
-        .then((value) {
-      Navigator.pop(context);
-      print(offerRideModel.toJson());
-      Future.delayed(const Duration(milliseconds: 300), () {
-        toastMessage('Saved Successfully', context, color: AppColors.success);
+    OfferRideListModel offerRideListModel = OfferRideListModel([]);
+    if (prefs.getString('offerRide') != null) {
+      Map<String, dynamic> offerMap = jsonDecode(prefs.getString('offerRide')!);
+      offerRideListModel = OfferRideListModel.fromJson(offerMap);
+      offerRideListModel.offerRide.add(offerRideModel);
+      await prefs
+          .setString('offerRide', jsonEncode(offerRideListModel))
+          .then((value) {
+        Navigator.pop(context);
+        toastMessage(
+          'trip_created_successfully'.tr(),
+          context,
+          color: AppColors.success,
+          duration: 300,
+        );
       });
-    });
+    } else {
+      offerRideListModel.offerRide.add(offerRideModel);
+      await prefs
+          .setString('offerRide', jsonEncode(offerRideListModel))
+          .then((value) {
+        Navigator.pop(context);
+        toastMessage(
+          'trip_created_successfully'.tr(),
+          context,
+          color: AppColors.success,
+          duration: 300,
+        );
+      });
+    }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rehla/core/utils/assets_manager.dart';
@@ -15,7 +16,7 @@ class MapImageWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          kind==1?'Set Start Location':'Set End Location',
+          kind==1?'set_start_location'.tr():'set_end_location'.tr(),
         ),
         backgroundColor: AppColors.primary,
       ),
@@ -32,7 +33,7 @@ class MapImageWidget extends StatelessWidget {
             right: 0,
             child: CustomButton(
               onClick: () =>context.read<OfferRideCubit>().selectCarLocation(kind,context),
-              text: 'Select This Location',
+              text: 'select_this_location'.tr(),
               color: AppColors.primary,
               paddingHorizontal: 80,
             ),

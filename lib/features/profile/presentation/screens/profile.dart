@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:rehla/core/utils/app_colors.dart';
 import 'package:rehla/core/utils/assets_manager.dart';
@@ -40,7 +41,7 @@ class ProfileScreen extends StatelessWidget {
                   side: BorderSide(width: 2.0, color: AppColors.white),
                 ),
                 child: Text(
-                  'Edit Profile',
+                  'Edit Profile'.tr(),
                   style: TextStyle(color: AppColors.white),
                 ),
               ),
@@ -51,8 +52,8 @@ class ProfileScreen extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        const ListTailWidget(
-          title: 'Rating',
+         ListTailWidget(
+          title: 'Rating'.tr(),
           imagePath: ImageAssets.rattingIcon,
         ),
         Container(
@@ -60,8 +61,8 @@ class ProfileScreen extends StatelessWidget {
           height: 1,
           color: AppColors.grey1,
         ),
-        const ListTailWidget(
-          title: 'Preference',
+         ListTailWidget(
+          title: 'Preference'.tr(),
           imagePath: ImageAssets.preferenceIcon,
         ),
         Container(
@@ -69,8 +70,8 @@ class ProfileScreen extends StatelessWidget {
           height: 1,
           color: AppColors.grey1,
         ),
-        const ListTailWidget(
-          title: 'Identity Card',
+         ListTailWidget(
+          title: 'Identity Card'.tr(),
           imagePath: ImageAssets.identityIcon,
         ),
         Container(
@@ -78,8 +79,8 @@ class ProfileScreen extends StatelessWidget {
           height: 1,
           color: AppColors.grey1,
         ),
-        const ListTailWidget(
-          title: 'Verification',
+         ListTailWidget(
+          title: 'Verification'.tr(),
           imagePath: ImageAssets.verificationIcon,
         ),
       ],

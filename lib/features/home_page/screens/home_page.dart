@@ -89,7 +89,7 @@ class HomePageScreen extends StatelessWidget {
                                   Text(
                                     "Create a participatory journey".tr(),
                                     style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 20,
                                         color: AppColors.black,
                                         fontWeight: FontWeight.bold),
                                   )
@@ -110,6 +110,7 @@ class HomePageScreen extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.all(10),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Image.asset(
                                   ImageAssets.pin,

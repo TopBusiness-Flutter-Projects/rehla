@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart'as tr;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -18,9 +19,9 @@ class CarPlateMainWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              child: Text('Car Plate'),
+             Padding(
+              padding:const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              child: Text('Car Plate'.tr()),
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -32,10 +33,10 @@ class CarPlateMainWidget extends StatelessWidget {
                       textDirection: TextDirection.rtl,
                       child: PinCodeTextField(
                         hintCharacter: '',
-                        errorTextSpace: 30,
+                        errorTextSpace: 40,
                         validator: (value) {
                           if (value!.length < 4) {
-                            return 'Please Enter All Fields !!!';
+                            return 'Please Enter All Fields !!!'.tr();
                           }
                           return null;
                         },
@@ -43,7 +44,7 @@ class CarPlateMainWidget extends StatelessWidget {
                         length: 4,
                         animationType: AnimationType.fade,
                         pinTheme: PinTheme(
-                          fieldOuterPadding: const EdgeInsets.only(top: 15),
+                          fieldOuterPadding: const EdgeInsets.only(top: 18),
                           inactiveColor: AppColors.gray,
                           activeColor: AppColors.gray,
                           shape: PinCodeFieldShape.box,
@@ -64,15 +65,15 @@ class CarPlateMainWidget extends StatelessWidget {
                   ),
                   const SizedBox(width: 18),
                   CarPlateWidget(
-                    title: 'Car Plate',
+                    title: 'Car Plate'.tr(),
                     indexes: 0,
                   ),
                   CarPlateWidget(
-                    title: 'Car Plate',
+                    title: 'Car Plate'.tr(),
                     indexes: 1,
                   ),
                   CarPlateWidget(
-                    title: 'Car Plate',
+                    title: 'Car Plate'.tr(),
                     indexes: 2,
                   ),
                 ],
@@ -84,7 +85,7 @@ class CarPlateMainWidget extends StatelessWidget {
                 controller: context.read<AddCarCubit>().sequenceController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  hintText: 'Car Sequence Number',
+                  hintText: 'Car Sequence Number'.tr(),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0),
                     borderSide: BorderSide.none,
@@ -94,7 +95,7 @@ class CarPlateMainWidget extends StatelessWidget {
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please Enter Car Sequence Number !!!';
+                    return 'Please Enter Car Sequence Number !!!'.tr();
                   }
                   return null;
                 },

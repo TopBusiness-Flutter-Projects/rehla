@@ -1,7 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rehla/features/add%20car/presentation/screens/add_car.dart';
-import 'package:rehla/features/offer_ride/presentation/cubit/offer_ride_cubit.dart';
 import 'package:rehla/features/offer_ride/presentation/cubit/offer_ride_cubit.dart';
 
 import '../../../../core/utils/app_colors.dart';
@@ -20,13 +20,13 @@ class PricesWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Expected Distance',
+                    'expected_distance'.tr(),
                     style: TextStyle(color: AppColors.primary),
                   ),
                 ),
                 Expanded(
                   child: Text(
-                    '${offerRideCubit.expectedDistance}   KM ',
+                    '${offerRideCubit.expectedDistance}   ${'KM'.tr()} ',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: AppColors.primary,
@@ -41,13 +41,13 @@ class PricesWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Expected Price',
+                    'expected_price'.tr(),
                     style: TextStyle(color: AppColors.primary),
                   ),
                 ),
                 Expanded(
                   child: Text(
-                    '${offerRideCubit.expectedPrice}   SAR',
+                    '${offerRideCubit.expectedPrice}   ${'SAR'.tr()}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: AppColors.primary,
@@ -62,13 +62,13 @@ class PricesWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Total Seat Price',
+                    'total_seat_price'.tr(),
                     style: TextStyle(color: AppColors.primary),
                   ),
                 ),
                 Expanded(
                   child: Text(
-                    '${offerRideCubit.totalSeatPrice}   SAR',
+                    '${offerRideCubit.totalSeatPrice}   ${'SAR'.tr()}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: AppColors.primary,
@@ -83,7 +83,7 @@ class PricesWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Set Seat Price',
+                    'set_seat_price'.tr(),
                     style: TextStyle(color: AppColors.primary),
                   ),
                 ),
@@ -102,7 +102,7 @@ class PricesWidget extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 22),
                         child: Text(
-                          '${offerRideCubit.seatPrice}   SAR',
+                          '${offerRideCubit.seatPrice}   ${'SAR'.tr()}',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: AppColors.primary,
@@ -128,7 +128,7 @@ class PricesWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Set Number Of  Seats',
+                    'set_number_of_seats'.tr(),
                     style: TextStyle(color: AppColors.primary),
                   ),
                 ),
@@ -173,7 +173,7 @@ class PricesWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Select Car',
+                    'select_car'.tr(),
                     style: TextStyle(color: AppColors.primary),
                   ),
                 ),
@@ -227,7 +227,7 @@ class PricesWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Two Passengers in The Back Seat',
+                    'two_passengers_in_the_back_seat'.tr(),
                     style: TextStyle(color: AppColors.primary),
                   ),
                 ),

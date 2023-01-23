@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,9 +22,9 @@ class SelectCarPhotoWidget extends StatelessWidget {
             showDialog(
               context: context,
               builder: (ctx) => AlertDialog(
-                title: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5),
-                  child: Text('Choose'),
+                title:  Padding(
+                  padding:const EdgeInsets.symmetric(vertical: 5),
+                  child: Text('Choose'.tr()),
                 ),
                 contentPadding: EdgeInsets.zero,
                 content: SizedBox(
@@ -47,7 +48,7 @@ class SelectCarPhotoWidget extends StatelessWidget {
                             children: [
                               Icon(Icons.camera_alt,
                                   size: 45, color: AppColors.gray),
-                              const Text('Camera')
+                               Text('camera'.tr())
                             ],
                           ),
                         ),
@@ -69,7 +70,7 @@ class SelectCarPhotoWidget extends StatelessWidget {
                             children: [
                               Icon(Icons.photo,
                                   size: 45, color: AppColors.gray),
-                              const Text('Gallery')
+                               Text('Gallery'.tr())
                             ],
                           ),
                         ),
@@ -83,7 +84,7 @@ class SelectCarPhotoWidget extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: const Text('Cancel'))
+                      child:  Text('Cancel'.tr()))
                 ],
               ),
             );
@@ -130,7 +131,7 @@ class SelectCarPhotoWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Text(
-            'Add Car Photo',
+            'Add Car Photo'.tr(),
             style: TextStyle(color: AppColors.grey1),
           ),
         ),

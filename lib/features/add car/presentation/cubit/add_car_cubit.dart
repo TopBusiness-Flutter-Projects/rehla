@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -212,18 +213,21 @@ class AddCarCubit extends Cubit<AddCarState> {
       productionYearContent: productionYearContent,
       carSeatContent: carSeatContent,
       carPlateTextContent:
-      '${carPlateTextContent[0]} ${carPlateTextContent[1]} ${carPlateTextContent[2]} ${carPlateNumContent!}',
+          '${carPlateTextContent[0]} ${carPlateTextContent[1]} ${carPlateTextContent[2]} ${carPlateNumContent!}',
       sequenceNumber: sequenceController.text,
       drivingLicencePhoto: imagePath1,
       carInsurancePhoto: imagePath2,
       carPaper: imagePath3,
     );
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList('addCar',[jsonEncode(addCarModel)]).then((value) {
+    await prefs.setString('addCar', jsonEncode(addCarModel)).then((value) {
       Navigator.pop(context);
-      Future.delayed(const Duration(milliseconds: 300),(){
-        toastMessage('Saved Successfully', context,color: AppColors.success);
-      });
+      toastMessage(
+        'Saved Car Successfully'.tr(),
+        context,
+        color: AppColors.success,
+        duration: 300,
+      );
     });
   }
 }

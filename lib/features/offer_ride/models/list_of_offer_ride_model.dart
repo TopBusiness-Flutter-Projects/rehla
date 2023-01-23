@@ -1,14 +1,14 @@
 import 'offer_ride_model.dart';
 
 class OfferRideListModel {
-  final List<OfferRideModel> offerRide;
+  late final List<OfferRideModel> offerRide;
 
   OfferRideListModel(this.offerRide);
 
   factory OfferRideListModel.fromJson(Map<String, dynamic> json) =>
       OfferRideListModel(
         List<OfferRideModel>.from(
-          json["offerRide"].map((x) => x),
+          json["offerRide"].map((x) => OfferRideModel.fromJson(x)),
         ),
       );
 

@@ -1,4 +1,5 @@
 import 'package:date_time_picker/date_time_picker.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rehla/core/utils/app_colors.dart';
@@ -14,9 +15,11 @@ class OfferRideScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String lang = EasyLocalization.of(context)!.locale.languageCode;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Offer Ride'),
+        title:  Text('offer_ride'.tr()),
         backgroundColor: AppColors.primary,
       ),
       body: BlocBuilder<OfferRideCubit, OfferRideState>(
@@ -29,13 +32,13 @@ class OfferRideScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 18,
+                    height: 20,
                     child: Text(
-                      'Offer A Ride',
+                      'offer_ride'.tr(),
                       style: TextStyle(
                           color: AppColors.primary,
                           fontSize: 16,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.bold,),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -48,7 +51,7 @@ class OfferRideScreen extends StatelessWidget {
                             height: 120,
                             decoration: BoxDecoration(
                                 color: AppColors.gray200,
-                                borderRadius: BorderRadius.circular(12)),
+                                borderRadius: BorderRadius.circular(12),),
                             child: Row(
                               children: [
                                 SizedBox(
@@ -66,7 +69,7 @@ class OfferRideScreen extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.circular(50),
-                                                  color: AppColors.primary),
+                                                  color: AppColors.primary,),
                                             ),
                                           ],
                                         ),
@@ -98,16 +101,16 @@ class OfferRideScreen extends StatelessWidget {
                                         Expanded(
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(
-                                                horizontal: 8),
+                                                horizontal: 8,),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                  cubit.startLocation,
+                                                  cubit.startLocation??'set_start_location'.tr(),
                                                   style: TextStyle(
-                                                      color: AppColors.gray),
+                                                      color: AppColors.gray,),
                                                 ),
                                                 Icon(
                                                   Icons.my_location,
@@ -150,11 +153,6 @@ class OfferRideScreen extends StatelessWidget {
                                                   ),
                                                   onChanged: (val) =>
                                                       cubit.startTime = val,
-                                                  // validator: (val) {
-                                                  //   print(val);
-                                                  //   return null;
-                                                  // },
-                                                  // onSaved: (val) => print(val),
                                                 ),
                                               ),
                                             ),
@@ -212,10 +210,10 @@ class OfferRideScreen extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: InkWell(
-                                    onTap: () => cubit.startLocation ==
-                                            'Set Start Location'
+                                    onTap: () => cubit.isStartLocationSelected ==
+                                            false
                                         ? toastMessage(
-                                            'Please Select Start Location First',
+                                            'please_select_start_location_first'.tr(),
                                             context,
                                             color: AppColors.black,
                                           )
@@ -233,7 +231,7 @@ class OfferRideScreen extends StatelessWidget {
                                         Expanded(
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(
-                                                horizontal: 8),
+                                                horizontal: 8,),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -241,7 +239,7 @@ class OfferRideScreen extends StatelessWidget {
                                               children: [
                                                 Expanded(
                                                   child: Text(
-                                                    cubit.endLocation,
+                                                    cubit.endLocation??'set_end_location'.tr(),
                                                     overflow: TextOverflow.clip,
                                                     style: TextStyle(
                                                         color: AppColors.gray),
@@ -263,13 +261,13 @@ class OfferRideScreen extends StatelessWidget {
                                             child: Padding(
                                               padding:
                                                   const EdgeInsets.symmetric(
-                                                      horizontal: 8),
+                                                      horizontal: 8,),
                                               child: Align(
-                                                alignment: Alignment.centerLeft,
+                                                alignment: lang=='en'?Alignment.centerLeft:Alignment.centerRight,
                                                 child: Text(
-                                                  cubit.endTime,
+                                                  cubit.endTime??'reaching_time'.tr(),
                                                   style: TextStyle(
-                                                      color: AppColors.gray),
+                                                      color: AppColors.gray,),
                                                 ),
                                               ),
                                             ),
@@ -286,7 +284,8 @@ class OfferRideScreen extends StatelessWidget {
                       ),
                       Positioned(
                           top: 22,
-                          left: 32,
+                          left: lang=='en'?32:null,
+                          right: lang=='ar'?32:0,
                           child: SizedBox(
                             height: 148,
                             child: Column(
@@ -327,7 +326,7 @@ class OfferRideScreen extends StatelessWidget {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 40, vertical: 10),
+                          horizontal: 40, vertical: 10,),
                       child: DateTimePicker(
                         type: DateTimePickerType.date,
                         onChanged: (val) => cubit.date = val,
@@ -366,16 +365,10 @@ class OfferRideScreen extends StatelessWidget {
                     style: TextStyle(color: AppColors.gray),
                     minLines: 8,
                     maxLines: 20,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please Enter Car Sequence Number !!!';
-                      }
-                      return null;
-                    },
                   ),
                   const SizedBox(height: 25),
                   CustomButton(
-                    text: 'Create',
+                    text: 'Create'.tr(),
                     color: AppColors.primary,
                     onClick: () => cubit.saveOfferRideData(context),
                     paddingHorizontal: 110,

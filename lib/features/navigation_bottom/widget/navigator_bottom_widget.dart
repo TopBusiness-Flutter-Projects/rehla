@@ -24,7 +24,7 @@ class NavigatorBottomWidget extends StatelessWidget {
           items: [
             _page != 0
                 ? SizedBox(
-                    height: 40,
+              height: 50,
                     child: Column(
                       children: [
                         MySvgWidget(
@@ -33,7 +33,7 @@ class NavigatorBottomWidget extends StatelessWidget {
                           width: 24,
                           height: 24,
                         ),
-                        Text("profile",
+                        Text("profile".tr(),
                             style: TextStyle(
                               color: AppColors.black,
                               fontSize: 10,
@@ -49,7 +49,7 @@ class NavigatorBottomWidget extends StatelessWidget {
                   ),
             _page != 1
                 ? SizedBox(
-                    height: 40,
+              height: 50,
                     child: Column(
                       children: [
                         MySvgWidget(
@@ -58,7 +58,7 @@ class NavigatorBottomWidget extends StatelessWidget {
                           width: 24,
                           height: 24,
                         ),
-                        Text("my_tour",
+                        Text("my_tour".tr(),
                             style: TextStyle(
                               color: AppColors.black,
                               fontSize: 10,
@@ -74,7 +74,7 @@ class NavigatorBottomWidget extends StatelessWidget {
                   ),
             _page != 2
                 ? SizedBox(
-                    height: 40,
+              height: 50,
                     child: Column(
                       children: [
                         MySvgWidget(
@@ -83,7 +83,7 @@ class NavigatorBottomWidget extends StatelessWidget {
                           width: 24,
                           height: 24,
                         ),
-                        Text("home",
+                        Text("home".tr(),
                             style: TextStyle(
                               color: AppColors.black,
                               fontSize: 10,
@@ -99,7 +99,7 @@ class NavigatorBottomWidget extends StatelessWidget {
                   ),
             _page != 3
                 ? SizedBox(
-                    height: 40,
+              height: 50,
                     child: Column(
                       children: [
                         MySvgWidget(
@@ -108,7 +108,7 @@ class NavigatorBottomWidget extends StatelessWidget {
                           width: 24,
                           height: 24,
                         ),
-                        Text("orders",
+                        Text("orders".tr(),
                             style: TextStyle(
                               color: AppColors.black,
                               fontSize: 10,
@@ -124,7 +124,7 @@ class NavigatorBottomWidget extends StatelessWidget {
                   ),
             _page != 4
                 ? SizedBox(
-                    height: 40,
+                    height: 50,
                     child: Column(
                       children: [
                         MySvgWidget(
@@ -133,7 +133,7 @@ class NavigatorBottomWidget extends StatelessWidget {
                           width: 24,
                           height: 24,
                         ),
-                        Text("notification",
+                        Text("notification".tr(),
                             style: TextStyle(
                               color: AppColors.black,
                               fontSize: 10,
