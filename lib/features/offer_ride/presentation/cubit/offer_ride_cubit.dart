@@ -8,8 +8,8 @@ import 'package:rehla/core/utils/toast_message_method.dart';
 import 'package:rehla/features/offer_ride/models/offer_ride_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../core/preferences/preferences.dart';
 import '../../../add car/models/add_Car_model.dart';
-import '../../models/list_of_offer_ride_model.dart';
 
 part 'offer_ride_state.dart';
 
@@ -20,8 +20,6 @@ class OfferRideCubit extends Cubit<OfferRideState> {
     controller.text = 'information'.tr();
     startTime =
         '${DateTime.now().hour < 10 ? '0${DateTime.now().hour}' : DateTime.now().hour}:${DateTime.now().minute < 10 ? '0${DateTime.now().minute}' : DateTime.now().minute}:${DateTime.now().second < 10 ? '0${DateTime.now().second}' : DateTime.now().second}';
-    print('startTime');
-    print(startTime);
     date =
         '${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}';
   }
@@ -128,8 +126,7 @@ class OfferRideCubit extends Cubit<OfferRideState> {
   }
 
   saveOfferRideData(BuildContext context) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    OfferRideModel offerRideModel = OfferRideModel(
+    Preferences.instance.saveOfferRideData(OfferRideModel(
       startLocation: startLocation,
       endLocation: endLocation,
       startTime: startTime,
@@ -142,36 +139,15 @@ class OfferRideCubit extends Cubit<OfferRideState> {
       selectedCar: selectedCar,
       isPassenger: isPassenger,
       information: controller.text,
-    );
-    OfferRideListModel offerRideListModel = OfferRideListModel([]);
-    if (prefs.getString('offerRide') != null) {
-      Map<String, dynamic> offerMap = jsonDecode(prefs.getString('offerRide')!);
-      offerRideListModel = OfferRideListModel.fromJson(offerMap);
-      offerRideListModel.offerRide.add(offerRideModel);
-      await prefs
-          .setString('offerRide', jsonEncode(offerRideListModel))
-          .then((value) {
-        Navigator.pop(context);
-        toastMessage(
-          'trip_created_successfully'.tr(),
-          context,
-          color: AppColors.success,
-          duration: 300,
-        );
-      });
-    } else {
-      offerRideListModel.offerRide.add(offerRideModel);
-      await prefs
-          .setString('offerRide', jsonEncode(offerRideListModel))
-          .then((value) {
-        Navigator.pop(context);
-        toastMessage(
-          'trip_created_successfully'.tr(),
-          context,
-          color: AppColors.success,
-          duration: 300,
-        );
-      });
-    }
+      status: 0,
+    )).then((value) {
+      Navigator.pop(context);
+      toastMessage(
+        'trip_created_successfully'.tr(),
+        context,
+        color: AppColors.success,
+        duration: 300,
+      );
+    });
   }
 }

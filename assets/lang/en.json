@@ -40,6 +40,8 @@
   "select_this_location": "Select This Location",
   "No Trip Found": "No Trip Found",
   "Waiting": "Waiting",
+  "Start": "Started",
+  "End": "Ended",
   "Bookings": "Bookings",
   "Details": "Details",
   "End Trip": "End Trip",
@@ -91,8 +93,21 @@
   "Rating": "Rating",
   "Preference": "Preference",
   "Identity Card": "Identity Card",
-  "Verification": "Verification"
-
+  "Verification": "Verification",
+  "trip_details": "Trip Details",
+  "start_location": "Start Location",
+  "end_location": "End Location",
+  "driver_details": "Driver Details",
+  "passenger": "Passenger",
+  "enable": "Enable",
+  "seat_price": "Seat Price",
+  "trip_price": "Trip Price",
+  "gover_price": "Government Price",
+  "app_price": "App Price",
+  "copon": "Copon",
+  "vate": "Vate",
+  "airport_price": "Airport Price",
+  "capten_price": "Capten Price"
 
 
 

@@ -40,10 +40,13 @@
   "select_this_location": "اختار هذا المكان",
   "No Trip Found": "لا يوجد رحلات",
   "Waiting": "قيد الانتظار",
+  "Start": "بدأت",
+  "End": "تم التوصيل",
   "Bookings": "الحجوزات",
   "Details": "التفاصيل",
-  "End Trip": "الغاء الرحله",
+  "Close Trip": "الغاء الرحله",
   "Start Trip": "بدء الرحله",
+  "End Trip": "انهاء الرحله",
   "Available Seats": "المقاعد المتاحه",
   "Distance": "المسافه",
   "Time": "الوقت",
@@ -91,7 +94,21 @@
   "Rating": "التقييم",
   "Preference": "التفضيلات",
   "Identity Card": "بطاقة الهويه",
-  "Verification": "التفعيل"
+  "Verification": "التفعيل",
+  "trip_details": "تفاصيل الرحله",
+  "start_location": "مكان بدء الرحله",
+  "end_location": "مكان انهاء الرحله",
+  "driver_details": "تعليمات الكابتن",
+  "passenger": "المسافرين",
+  "enable": "التفعيل",
+  "seat_price": "سعر المقعد",
+  "trip_price": "سعر المشوار",
+  "gover_price": "رسوم حكوميه",
+  "app_price": "رسوم التطبيق",
+  "copon": "كوبون الخصم",
+  "vate": "ضريبه القيمه المضافه",
+  "airport_price": "رسوم المطار",
+  "capten_price": "صافى الكابتن"
 
 
 

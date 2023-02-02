@@ -11,6 +11,9 @@ class OfferRideModel {
   final String? selectedCar;
   final bool? isPassenger;
   final String? information;
+  final String? driverName;
+  final String? passengerName;
+  int? status;
 
   OfferRideModel({
     this.startLocation,
@@ -25,6 +28,9 @@ class OfferRideModel {
     this.selectedCar,
     this.isPassenger,
     this.information,
+    this.driverName,
+    this.passengerName,
+    this.status=0,
   });
 
   factory OfferRideModel.fromJson(Map<String, dynamic> json) => OfferRideModel(
@@ -40,6 +46,9 @@ class OfferRideModel {
         selectedCar: json["selectedCar"],
         isPassenger: json["isPassenger"],
         information: json["information"],
+        driverName: json["driverName"],
+        passengerName: json["passengerName"],
+        status: json["status"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -55,5 +64,8 @@ class OfferRideModel {
         "selectedCar": selectedCar,
         "isPassenger": isPassenger,
         "information": information,
+        "driverName": driverName,
+        "passengerName": passengerName,
+        "status": status,
       };
 }

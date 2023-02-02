@@ -11,6 +11,7 @@ import 'features/add car/presentation/cubit/add_car_cubit.dart';
 import 'features/mytour_page/cubit/my_tour_cubit.dart';
 import 'features/navigation_bottom/cubit/navigator_bottom_cubit.dart';
 import 'features/offer_ride/presentation/cubit/offer_ride_cubit.dart';
+import 'features/trip_details/cubit/details_cubit.dart';
 
 class Rehla extends StatefulWidget {
   Rehla({Key? key}) : super(key: key);
@@ -40,6 +41,9 @@ class _RehlaState extends State<Rehla> {
         ),
         BlocProvider(
           create: (_) => injector.serviceLocator<MyTourCubit>(),
+        ),
+        BlocProvider(
+          create: (_) => injector.serviceLocator<DetailsCubit>(),
         ),
       ],
       child: MaterialApp(

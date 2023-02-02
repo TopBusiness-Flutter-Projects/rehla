@@ -10,6 +10,7 @@ import 'features/add car/presentation/cubit/add_car_cubit.dart';
 import 'features/mytour_page/cubit/my_tour_cubit.dart';
 import 'features/navigation_bottom/cubit/navigator_bottom_cubit.dart';
 import 'features/offer_ride/presentation/cubit/offer_ride_cubit.dart';
+import 'features/trip_details/cubit/details_cubit.dart';
 
 // import 'package:http/http.dart' as http;
 
@@ -23,6 +24,7 @@ Future<void> setup() async {
   serviceLocator.registerFactory(() => AddCarCubit());
   serviceLocator.registerFactory(() => OfferRideCubit());
   serviceLocator.registerFactory(() => MyTourCubit());
+  serviceLocator.registerFactory(() => DetailsCubit());
 
 
   ///////////////////// Use Cases ////////////////////////

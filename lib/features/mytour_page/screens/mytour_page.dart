@@ -33,8 +33,8 @@ class MyTourScreen extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            TourWidget(),
-            TourWidget(),
+            TourWidget(status: 1),
+            TourWidget(status: 2),
           ],
         ),
       ),

@@ -41,6 +41,7 @@ class ImageAssets {
   static const String timeIcon = '$iconsPath/time.svg';
   static const String seatIcon = '$iconsPath/seat.svg';
   static const String distanceIcon = '$iconsPath/distance.svg';
+  static const String friendsIcon = '$iconsPath/friends.svg';
 
 
 }

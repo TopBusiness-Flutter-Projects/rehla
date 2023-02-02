@@ -89,8 +89,8 @@ class MyOrdersScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height - 40,
               child: const TabBarView(
                 children: [
-                  TourWidget(),
-                  TourWidget(),
+                  TourWidget(status: 1),
+                  TourWidget(status: 2),
                 ],
               ),
             ),

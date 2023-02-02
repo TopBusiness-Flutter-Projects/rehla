@@ -19,6 +19,7 @@ class AppColors {
   static Color error = Colors.red;
   static Color success = Colors.green;
   static Color white = Colors.white;
+  static Color whiteLite = HexColor("#F3F3F3");
   static Color black = Colors.black;
   static Color gray = Colors.grey;
   static Color grayLite = Colors.grey[700]!;
