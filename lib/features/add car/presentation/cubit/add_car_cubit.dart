@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:rehla/core/preferences/preferences.dart';
 import 'package:rehla/core/utils/app_colors.dart';
 import 'package:rehla/core/utils/toast_message_method.dart';
 import 'package:rehla/features/add%20car/models/add_Car_model.dart';
@@ -204,23 +205,21 @@ class AddCarCubit extends Cubit<AddCarState> {
   }
 
   saveAddCarModelToShared(BuildContext context) async {
-    AddCarModel addCarModel = AddCarModel(
-      carPhoto: imagePath,
-      carBrandContent: carBrandContent,
-      carModelContent: carModelContent,
-      carTypeContent: carTypeContent,
-      carColorContent: carColorContent,
-      productionYearContent: productionYearContent,
-      carSeatContent: carSeatContent,
-      carPlateTextContent:
-          '${carPlateTextContent[0]} ${carPlateTextContent[1]} ${carPlateTextContent[2]} ${carPlateNumContent!}',
-      sequenceNumber: sequenceController.text,
-      drivingLicencePhoto: imagePath1,
-      carInsurancePhoto: imagePath2,
-      carPaper: imagePath3,
-    );
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('addCar', jsonEncode(addCarModel)).then((value) {
+      Preferences.instance.saveCarData(AddCarModel(
+        carPhoto: imagePath,
+        carBrandContent: carBrandContent,
+        carModelContent: carModelContent,
+        carTypeContent: carTypeContent,
+        carColorContent: carColorContent,
+        productionYearContent: productionYearContent,
+        carSeatContent: carSeatContent,
+        carPlateTextContent:
+        '${carPlateTextContent[0]} ${carPlateTextContent[1]} ${carPlateTextContent[2]} ${carPlateNumContent!}',
+        sequenceNumber: sequenceController.text,
+        drivingLicencePhoto: imagePath1,
+        carInsurancePhoto: imagePath2,
+        carPaper: imagePath3,
+      )).then((value) {
       Navigator.pop(context);
       toastMessage(
         'Saved Car Successfully'.tr(),

@@ -108,7 +108,15 @@
   "copon": "كوبون الخصم",
   "vate": "ضريبه القيمه المضافه",
   "airport_price": "رسوم المطار",
-  "capten_price": "صافى الكابتن"
+  "capten_price": "صافى الكابتن",
+  "Add Driver": "اضافه سائق",
+  "Add Passenger": "اضافه مسافر",
+  "Driver Name": "اسم السائق",
+  "Passenger Name": "اسم المسافر",
+  "Please Enter Driver Name !!!": "من فضلك ادخل اسم السائق",
+  "Please Enter Passenger Name !!!": "من فضلك ادخل اسم المسافر",
+  "Please Select The Image !!!": "من فضلك اختر الصوره",
+  "Close": "اغلاق"
 
 
 

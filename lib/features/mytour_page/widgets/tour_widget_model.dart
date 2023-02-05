@@ -6,21 +6,22 @@ import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/assets_manager.dart';
 import '../../../core/widgets/custom_button.dart';
 import '../../offer_ride/models/offer_ride_model.dart';
-import '../../trip_details/screens/trip_details.dart';
 import 'icon_card_widget.dart';
 
 class TourModel extends StatelessWidget {
-  const TourModel(
-      {Key? key,
-      required this.offerRideModel,
-      required this.startTrip,
-      required this.endTrip,
-      required this.closeTrip})
-      : super(key: key);
+  const TourModel({
+    Key? key,
+    required this.offerRideModel,
+    required this.startTrip,
+    required this.endTrip,
+    required this.closeTrip,
+    required this.detailsTrip,
+  }) : super(key: key);
   final OfferRideModel offerRideModel;
   final VoidCallback startTrip;
   final VoidCallback endTrip;
   final VoidCallback closeTrip;
+  final VoidCallback detailsTrip;
 
   @override
   Widget build(BuildContext context) {
@@ -154,12 +155,7 @@ class TourModel extends StatelessWidget {
                         Expanded(
                           child: CustomButton(
                             text: 'Details'.tr(),
-                            onClick: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const TripDetails(),
-                              ),
-                            ),
+                            onClick: () => detailsTrip(),
                             color: AppColors.blue,
                             paddingHorizontal: 8,
                           ),

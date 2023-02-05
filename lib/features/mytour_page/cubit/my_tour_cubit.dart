@@ -17,6 +17,64 @@ class MyTourCubit extends Cubit<MyTourState> {
   List<OfferRideModel> offerRideModelList = [];
   List<OfferRideModel> lastOfferRideModelList = [];
 
+  String driveImagePath = '';
+  String driveName = '';
+  OfferRideModel? offerRideModelTemp;
+  int index = 0;
+
+  List<PassengerModel> passengerModelList = [];
+
+  setData(OfferRideModel offerRideModel, int index) {
+    this.index = index;
+    offerRideModelTemp = offerRideModel;
+    if (offerRideModel.driverModel != null) {
+      driveImagePath = offerRideModel.driverModel!.diverImagePath!;
+      driveName = offerRideModel.driverModel!.diverName!;
+    } else {
+      driveImagePath = '';
+      driveName = '';
+    }
+
+    if (offerRideModel.passengerModel != null) {
+      passengerModelList = offerRideModel.passengerModel!;
+    } else {
+      passengerModelList = [];
+    }
+  }
+
+  saveDriverData(String driveImagePath, String driveName) {
+    this.driveImagePath = driveImagePath;
+    this.driveName = driveName;
+    offerRideModelTemp!.driverModel = DriverModel(
+      diverName: driveName,
+      diverImagePath: driveImagePath,
+    );
+    Preferences.instance.saveTripDriversAndPassengers(
+      index: index,
+      offerRideModel: offerRideModelTemp!,
+    );
+    emit(MyTourSaveDriverData());
+  }
+
+  savePassengerData(String passengerImagePath, String passengerName,bool isDelete,int index) {
+    if(isDelete){
+      passengerModelList.removeAt(index);
+    }else{
+      passengerModelList.add(
+        PassengerModel(
+          passengerName: passengerName,
+          passengerImagePath: passengerImagePath,
+        ),
+      );
+    }
+    offerRideModelTemp!.passengerModel = passengerModelList;
+    Preferences.instance.saveTripDriversAndPassengers(
+      index: index,
+      offerRideModel: offerRideModelTemp!,
+    );
+    emit(MyTourSaveDriverData());
+  }
+
   getAllSavedOffers() async {
     OfferRideListModel offerRideListModel = OfferRideListModel(offerRide: []);
     offerRideListModel = await Preferences.instance.getAllSavedOffers();

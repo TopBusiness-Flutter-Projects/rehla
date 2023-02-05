@@ -14,8 +14,12 @@ class OfferRideModel {
   final String? driverName;
   final String? passengerName;
   int? status;
+  DriverModel? driverModel;
+  List<PassengerModel>? passengerModel;
 
   OfferRideModel({
+    this.passengerModel,
+    this.driverModel,
     this.startLocation,
     this.endLocation,
     this.startTime,
@@ -30,7 +34,7 @@ class OfferRideModel {
     this.information,
     this.driverName,
     this.passengerName,
-    this.status=0,
+    this.status = 0,
   });
 
   factory OfferRideModel.fromJson(Map<String, dynamic> json) => OfferRideModel(
@@ -49,6 +53,15 @@ class OfferRideModel {
         driverName: json["driverName"],
         passengerName: json["passengerName"],
         status: json["status"],
+        driverModel: json["driverModel"] != null
+            ? DriverModel.fromJson(json["driverModel"])
+            : null,
+        passengerModel: json["passengerModel"]!=null
+            ? List<PassengerModel>.from(
+                json["passengerModel"].map((x) => PassengerModel.fromJson(x),
+                ),
+              )
+            : null,
       );
 
   Map<String, dynamic> toJson() => {
@@ -67,5 +80,47 @@ class OfferRideModel {
         "driverName": driverName,
         "passengerName": passengerName,
         "status": status,
+        "driverModel": driverModel != null ? driverModel!.toJson() : null,
+        "passengerModel": passengerModel!=null
+            ? List<dynamic>.from(
+                passengerModel!.map(
+                  (x) => x.toJson(),
+                ),
+              ).toList()
+            : null,
+      };
+}
+
+class DriverModel {
+  final String? diverName;
+  final String? diverImagePath;
+
+  DriverModel({this.diverName, this.diverImagePath});
+
+  factory DriverModel.fromJson(Map<String, dynamic> json) => DriverModel(
+        diverName: json["diverName"],
+        diverImagePath: json["diverImagePath"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "diverName": diverName,
+        "diverImagePath": diverImagePath,
+      };
+}
+
+class PassengerModel {
+  final String? passengerName;
+  final String? passengerImagePath;
+
+  PassengerModel({this.passengerName, this.passengerImagePath});
+
+  factory PassengerModel.fromJson(Map<String, dynamic> json) => PassengerModel(
+        passengerName: json["passengerName"],
+        passengerImagePath: json["passengerImagePath"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "passengerName": passengerName,
+        "passengerImagePath": passengerImagePath,
       };
 }

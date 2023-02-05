@@ -1,12 +1,9 @@
-import 'dart:convert';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rehla/core/utils/app_colors.dart';
 import 'package:rehla/core/utils/toast_message_method.dart';
 import 'package:rehla/features/offer_ride/models/offer_ride_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/preferences/preferences.dart';
 import '../../../add car/models/add_Car_model.dart';
@@ -67,9 +64,7 @@ class OfferRideCubit extends Cubit<OfferRideState> {
   }
 
   getAllSavedCars() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    Map<String, dynamic> carMap = jsonDecode(prefs.getString('addCar')!);
-    addCarModel = AddCarModel.fromJson(carMap);
+    addCarModel = await Preferences.instance.getAllSavedCars();
     selectedCar = addCarModel!.carModelContent!;
     emit(OfferRideGetAllCars());
   }

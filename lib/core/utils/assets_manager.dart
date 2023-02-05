@@ -42,6 +42,14 @@ class ImageAssets {
   static const String seatIcon = '$iconsPath/seat.svg';
   static const String distanceIcon = '$iconsPath/distance.svg';
   static const String friendsIcon = '$iconsPath/friends.svg';
+  static const String oneIcon = '$iconsPath/one.svg';
+  static const String twoIcon = '$iconsPath/two.svg';
+  static const String threeIcon = '$iconsPath/three.svg';
+  static const String fourIcon = '$iconsPath/four.svg';
+  static const String fiveIcon = '$iconsPath/five.svg';
+  static const String sixIcon = '$iconsPath/six.svg';
+  static const String sevenIcon = '$iconsPath/seven.svg';
+  static const String eightIcon = '$iconsPath/eight.svg';
 
 
 }

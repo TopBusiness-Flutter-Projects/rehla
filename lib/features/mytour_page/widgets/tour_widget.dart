@@ -7,6 +7,7 @@ import 'package:rehla/features/mytour_page/widgets/tour_widget_model.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/assets_manager.dart';
+import '../../trip_details/screens/trip_details.dart';
 
 class TourWidget extends StatefulWidget {
   const TourWidget({Key? key, required this.status}) : super(key: key);
@@ -25,8 +26,6 @@ class _TourWidgetState extends State<TourWidget> {
 
   @override
   Widget build(BuildContext context) {
-    print('widget.status');
-    print(widget.status);
     return BlocBuilder<MyTourCubit, MyTourState>(
       builder: (context, state) {
         MyTourCubit cubit = context.read<MyTourCubit>();
@@ -76,52 +75,76 @@ class _TourWidgetState extends State<TourWidget> {
                           ? cubit.offerRideModelList.length
                           : cubit.lastOfferRideModelList.length,
                       (index) {
-                        // print('cubit.offerRideModelList[index].toJson()');
-                        // print(cubit.offerRideModelList[index].toJson());
-                        // print('cubit.lastOfferRideModelList[index].toJson()');
-                        // // print(cubit.lastOfferRideModelList[index].toJson());
                         return widget.status == 1
-                          ? TourModel(
-                              offerRideModel: cubit.offerRideModelList[index],
-                              startTrip: () {
-                                cubit.changeTripStatus(
-                                  index: index,
-                                  status: 1,
-                                );
-                              },
-                              endTrip: () {
-                                cubit.changeTripStatus(
-                                  index: index,
-                                  status: 2,
-                                );
-                              },
-                              closeTrip: () {
-                                cubit.deleteTrip(
-                                  index,
-                                  context,
-                                );
-                              })
-                          : TourModel(
-                              offerRideModel:
-                                  cubit.lastOfferRideModelList[index],
-                              startTrip: () {
-                                cubit.changeTripStatus(
-                                  index: index,
-                                  status: 1,
-                                );
-                              },
-                              endTrip: () {
-                                cubit.changeTripStatus(
-                                  index: index,
-                                  status: 2,
-                                );
-                              },
-                              closeTrip: () {
-                                cubit.deleteTrip(
-                                  index,
-                                  context,
-                                );
-                              });
+                            ? TourModel(
+                                offerRideModel: cubit.offerRideModelList[index],
+                                startTrip: () {
+                                  cubit.changeTripStatus(
+                                    index: index,
+                                    status: 1,
+                                  );
+                                },
+                                endTrip: () {
+                                  cubit.changeTripStatus(
+                                    index: index,
+                                    status: 2,
+                                  );
+                                },
+                                closeTrip: () {
+                                  cubit.deleteTrip(
+                                    index,
+                                    context,
+                                  );
+                                },
+                                detailsTrip: () {
+                                  context.read<MyTourCubit>().setData(
+                                      cubit.offerRideModelList[index], index);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => TripDetails(
+                                        offerRideModel:
+                                            cubit.offerRideModelList[index],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              )
+                            : TourModel(
+                                offerRideModel:
+                                    cubit.lastOfferRideModelList[index],
+                                startTrip: () {
+                                  cubit.changeTripStatus(
+                                    index: index,
+                                    status: 1,
+                                  );
+                                },
+                                endTrip: () {
+                                  cubit.changeTripStatus(
+                                    index: index,
+                                    status: 2,
+                                  );
+                                },
+                                closeTrip: () {
+                                  cubit.deleteTrip(
+                                    index,
+                                    context,
+                                  );
+                                },
+                                detailsTrip: () {
+                                  context.read<MyTourCubit>().setData(
+                                      cubit.offerRideModelList[index], index);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => TripDetails(
+                                        offerRideModel:
+                                            cubit.offerRideModelList[index],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
                       },
                     )
                   ],

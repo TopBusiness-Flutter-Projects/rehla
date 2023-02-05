@@ -13,18 +13,18 @@ class AddCarModel {
   final String? carPaper;
 
   AddCarModel({
-    required this.carPhoto,
-    required this.carBrandContent,
-    required this.carModelContent,
-    required this.carTypeContent,
-    required this.carColorContent,
-    required this.productionYearContent,
-    required this.carSeatContent,
-    required this.carPlateTextContent,
-    required this.sequenceNumber,
-    required this.drivingLicencePhoto,
-    required this.carInsurancePhoto,
-    required this.carPaper,
+     this.carPhoto,
+     this.carBrandContent,
+     this.carModelContent,
+     this.carTypeContent,
+     this.carColorContent,
+     this.productionYearContent,
+     this.carSeatContent,
+     this.carPlateTextContent,
+     this.sequenceNumber,
+     this.drivingLicencePhoto,
+     this.carInsurancePhoto,
+     this.carPaper,
   });
 
   factory AddCarModel.fromJson(Map<String, dynamic> json) => AddCarModel(
